@@ -1,68 +1,391 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap");
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  box-sizing: border-box;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  background: #f7f7f2;
+  color: #26382c;
+  font-family: "Fredoka", Arial, sans-serif;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+button,
+input,
+select,
+textarea {
+  font: inherit;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.topbar {
+  min-height: 75px;
+  padding: 18px 6%;
+  background: #dce8d7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  color: #28543a;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.brand-n {
+  color: #d77a46;
+}
+
+.page {
+  width: min(1100px, 88%);
+  margin: auto;
+}
+
+.intro {
+  padding: 40px 0 35px;
+}
+
+.intro-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 28px;
+}
+
+.intro-copy h1 {
+  font-size: clamp(34px, 4vw, 52px);
+  margin: 0 0 12px;
+}
+
+.intro-copy p {
+  color: #647268;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.hero-photo {
+  display: block;
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.top-boxes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.small-box {
+  min-height: 85px;
+  padding: 20px 22px;
+  border: 1px solid #dce4d9;
+  border-radius: 10px;
+  background: white;
+  text-align: left;
+}
+
+.add-box,
+.save-button {
+  background: #28543a;
+  border-color: #28543a;
+  color: white;
+  font-weight: 600;
+}
+
+.add-box {
+  font-size: 18px;
+}
+
+.add-box:hover,
+.save-button:hover {
+  background: #1e422c;
+}
+
+.recent-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.recent-box span {
+  color: #6d7b70;
+}
+
+.recent-link,
+.back-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #28543a;
+  text-align: left;
+  font-weight: 600;
+}
+
+.saved-section {
+  padding: 35px 0 50px;
+  border-top: 1px solid #dce4d9;
+  scroll-margin-top: 20px;
+}
+
+.saved-section h2,
+.form-panel h2 {
+  margin: 0 0 22px;
+  font-size: 28px;
+}
+
+.message {
+  color: #28543a;
+  font-weight: 500;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.recipe-card {
+  overflow: hidden;
+  background: white;
+  border: 1px solid #dce4d9;
+  border-radius: 10px;
+}
+
+.card-content {
+  display: block;
+  width: 100%;
+  min-height: 215px;
+  padding: 20px;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+}
+
+.card-content h3 {
+  margin: 15px 0;
+  font-size: 22px;
+}
+
+.category {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: #e5efe2;
+  color: #28543a;
+  font-size: 13px;
+}
+
+.ingredients-preview {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  color: #5e6d61;
+  line-height: 1.5;
+}
+
+.time {
+  color: #657469;
+}
+
+.view-link {
+  color: #28543a;
+  font-weight: 600;
+}
+
+.card-actions {
+  display: flex;
+  border-top: 1px solid #e6ebe3;
+}
+
+.card-actions button {
+  flex: 1;
+  padding: 12px;
+  border: 0;
+  background: white;
+  color: #28543a;
+  font-weight: 600;
+}
+
+.card-actions button + button {
+  border-left: 1px solid #e6ebe3;
+  color: #ad4b3e;
+}
+
+.card-actions button:hover {
+  background: #f2f5ef;
+}
+
+.form-section {
+  display: grid;
+  grid-template-columns: minmax(0, 650px) minmax(220px, 1fr);
+  gap: 55px;
+  padding: 30px 0 80px;
+  scroll-margin-top: 20px;
+}
+
+.form-panel form {
+  display: grid;
+  gap: 18px;
+}
+
+.form-panel label {
+  display: grid;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.form-panel input,
+.form-panel select,
+.form-panel textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd8ca;
+  border-radius: 7px;
+  background: white;
+  color: #26382c;
+}
+
+.form-panel textarea {
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.save-button,
+.outline-button,
+.delete-button {
+  padding: 12px 18px;
+  border-radius: 7px;
+  font-weight: 600;
+}
+
+.save-button:disabled {
+  opacity: 0.6;
+}
+
+.outline-button {
+  border: 1px solid #28543a;
+  background: white;
+  color: #28543a;
+}
+
+.delete-button {
+  border: 1px solid #ad4b3e;
+  background: white;
+  color: #ad4b3e;
+}
+
+.error {
+  color: #ad352c;
+}
+
+.form-note {
+  align-self: start;
+  margin-top: 55px;
+  padding: 25px;
+  border-radius: 10px;
+  background: #e9eee2;
+}
+
+.form-note h3 {
+  margin: 0 0 12px;
+  font-size: 23px;
+}
+
+.form-note p {
+  margin: 0;
+  color: #5d6d60;
+  line-height: 1.6;
+}
+
+.details-page {
+  width: min(760px, 88%);
+  margin: 50px auto;
+}
+
+.details-page h1 {
+  margin: 20px 0 8px;
+  font-size: 42px;
+}
+
+.details-page section {
+  margin-top: 35px;
+  padding-top: 22px;
+  border-top: 1px solid #dce4d9;
+}
+
+.recipe-text {
+  white-space: pre-wrap;
+  line-height: 1.7;
+}
+
+.details-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 35px;
+}
+
+@media (max-width: 800px) {
+  .recipe-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  a:hover {
-    color: #747bff;
+
+  .form-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .form-note {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    width: 90%;
+  }
+
+  .intro-main,
+  .top-boxes,
+  .recipe-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-photo {
+    height: 240px;
+  }
+
+  .intro-copy h1,
+  .details-page h1 {
+    font-size: 34px;
+  }
+
+  .topbar {
+    padding: 16px 5%;
+  }
+
+  .brand {
+    font-size: 21px;
   }
 }
